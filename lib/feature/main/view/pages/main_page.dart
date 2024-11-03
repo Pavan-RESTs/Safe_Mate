@@ -9,7 +9,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     PersistentTabController controller =
-        PersistentTabController(initialIndex: 3);
+        PersistentTabController(initialIndex: 0);
     return CustomBottomNavBar(controller: controller);
   }
 }

@@ -1,6 +1,8 @@
 import 'package:client/core/constants/text_strings.dart';
 import 'package:client/core/device/device_utility.dart';
+import 'package:client/feature/main/view/pages/collect_data.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/constants/image_strings.dart';
@@ -19,12 +21,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Positioned(
               top: IDeviceUtility.getAppBarHeight() * 1.3,
-              left: 20,
+              left: IDeviceUtility.getScreenWidth() * 0.01,
               child: Row(
                 children: [
-                  const Icon(
-                    Iconsax.textalign_justifycenter,
-                    color: Colors.white,
+                  IconButton(
+                    icon: const Icon(
+                      Iconsax.textalign_justifycenter,
+                      color: Colors.white,
+                    ),
+                    onPressed: () => Get.to(const CollectData()),
                   ),
                   const SizedBox(
                     width: 10,

@@ -2,7 +2,9 @@ import 'package:client/core/constants/text_strings.dart';
 import 'package:client/core/device/device_utility.dart';
 import 'package:client/core/theme/pallete.dart';
 import 'package:client/feature/auth/view/widgets/login_text_box.dart';
+import 'package:client/feature/main/view/pages/main_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/constants/image_strings.dart';
 
@@ -107,7 +109,7 @@ class LoginPage extends StatelessWidget {
                 width: double.infinity,
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(const MainPage()),
                   child: const Text(
                     ITextStrings.loginText,
                     style: TextStyle(

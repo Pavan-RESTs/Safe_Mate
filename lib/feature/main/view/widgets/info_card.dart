@@ -1,26 +1,32 @@
-import 'package:client/core/device/device_utility.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constants/image_strings.dart';
+import '../../../../core/constants/image_strings.dart';
+import '../../../../core/device/device_utility.dart';
 
 class InfoCard extends StatelessWidget {
   final String title;
   final String info;
   final String? metric;
   final String imagePath;
+  final bool isAlert;
+
   const InfoCard({
     super.key,
     required this.title,
     required this.info,
     required this.metric,
     required this.imagePath,
+    required this.isAlert,
   });
 
   @override
   Widget build(BuildContext context) {
+    final Color borderColor = isAlert ? Colors.red : const Color(0xffd8d8d8);
+    final Color backgroundColor = isAlert ? Colors.red.shade50 : Colors.white;
+
     return Material(
       elevation: 6,
-      color: Colors.white,
+      color: backgroundColor,
       borderRadius: BorderRadius.circular(14),
       child: Container(
         width: IDeviceUtility.getScreenWidth() * 0.425,
@@ -28,7 +34,7 @@ class InfoCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
-            color: const Color(0xffd8d8d8),
+            color: borderColor,
           ),
         ),
         child: Padding(
@@ -44,7 +50,10 @@ class InfoCard extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: isAlert ? Colors.red : Colors.black,
+                    ),
                   ),
                   Image.asset(IImageStrings.threeDotIcon)
                 ],
@@ -54,9 +63,12 @@ class InfoCard extends StatelessWidget {
                 width: 75,
               ),
               Text(
-                "$info $metric",
-                style:
-                    const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                "$info ${metric ?? ''}",
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
+                  color: isAlert ? Colors.red : Colors.black,
+                ),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -65,11 +77,16 @@ class InfoCard extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
                   ),
+                  backgroundColor: isAlert ? Colors.red : null,
                 ),
                 onPressed: () {},
-                child: const Text(
+                child: Text(
                   "View Report",
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13,
+                    color: isAlert ? Colors.white : null,
+                  ),
                 ),
               ),
             ],
