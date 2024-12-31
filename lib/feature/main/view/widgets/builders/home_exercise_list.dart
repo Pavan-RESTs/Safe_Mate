@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:client/core/constants/animation_strings.dart';
+import 'package:client/feature/main/view/widgets/custom_exercise_demo.dart';
+import 'package:flutter/material.dart';
 
 import '../exercise_card.dart';
 
@@ -11,9 +13,27 @@ class HomeExerciseList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> _showMyDialog() async {
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return const CustomExerciseDemoCard(
+              exerciseName: '1',
+              exerciseDescription: 'des1',
+              lottieAsset: IAnimationStrings.exercise1,
+              reps: 12,
+              sets: 3);
+        },
+      );
+    }
+
     return Column(
       children: [
         ExerciseCard(
+          onPressed: () {
+            _showMyDialog();
+          },
           date: '18',
           month: 'Sep',
           title: 'Otago Exercise',

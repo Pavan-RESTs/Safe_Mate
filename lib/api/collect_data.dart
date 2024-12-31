@@ -7,7 +7,19 @@ import 'package:http/http.dart' as http;
 import '../core/theme/pallete.dart';
 
 class FlaskAPI {
-  static const String baseUrl = 'http://192.168.15.53:5000';
+  static String ipAddress = "192.168.117.56:5000";
+  static String baseUrl = 'http://$ipAddress';
+  static void getIp() {
+    Get.snackbar(
+      duration: const Duration(milliseconds: 1500),
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      snackPosition: SnackPosition.BOTTOM,
+      'Success',
+      'IP Address : $ipAddress',
+      backgroundColor: IPallete.primaryBlue.withOpacity(0.7),
+      colorText: Colors.white,
+    );
+  }
 
   static Future<void> toggleDataFeeding(bool state) async {
     final url = Uri.parse('$baseUrl/toggle_start/$state');

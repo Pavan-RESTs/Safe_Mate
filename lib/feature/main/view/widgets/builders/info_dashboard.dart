@@ -106,7 +106,7 @@ class _InfoDashboardState extends State<InfoDashboard> {
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(color: Colors.red),
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(

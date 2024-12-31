@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:client/api/collect_data.dart';
 import 'package:client/core/theme/pallete.dart';
+import 'package:client/feature/auth/view/widgets/login_text_box.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -138,10 +139,54 @@ class _CollectDataState extends State<CollectData> {
     });
   }
 
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          title: const Text('Enter IP address'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                LoginTextBox(
+                    hintText: "Eg : 192.168.15.53",
+                    textEditingController: controller,
+                    showSuffixIcon: false),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text(
+                'Submit',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                FlaskAPI.ipAddress = controller.text.trim();
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: _showMyDialog,
+              icon: const Icon(
+                Icons.cable_rounded,
+                color: Colors.white,
+              ))
+        ],
         backgroundColor: IPallete.primaryBlue,
         title: const Text(
           "Collect data",
@@ -184,7 +229,7 @@ class _CollectDataState extends State<CollectData> {
             ),
           ],
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 180),
+            padding: const EdgeInsets.symmetric(vertical: 180),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

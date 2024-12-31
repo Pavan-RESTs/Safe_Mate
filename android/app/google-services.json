@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "474047722611",
-    "project_id": "general-firebase-affd9",
-    "storage_bucket": "general-firebase-affd9.firebasestorage.app"
+    "project_number": "725547003537",
+    "project_id": "safe-mate-467f6",
+    "storage_bucket": "safe-mate-467f6.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:474047722611:android:0ce42dd0aef468a439e606",
+        "mobilesdk_app_id": "1:725547003537:android:0ab1ed36161ad8cf5a5930",
         "android_client_info": {
           "package_name": "com.example.client"
         }
@@ -15,45 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAJnwdyb0T6bdFYL1eASJZgnsar-K6a9jM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:474047722611:android:ca1e0dde5d2e87f339e606",
-        "android_client_info": {
-          "package_name": "com.example.markus"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAJnwdyb0T6bdFYL1eASJZgnsar-K6a9jM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:474047722611:android:12955060e76a0f7039e606",
-        "android_client_info": {
-          "package_name": "com.example.reservoir_startuptn"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAJnwdyb0T6bdFYL1eASJZgnsar-K6a9jM"
+          "current_key": "AIzaSyD3ZmpJaft_nF_nTnhuDhxk8NYGSFi821g"
         }
       ],
       "services": {

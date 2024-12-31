@@ -10,6 +10,7 @@ class ExerciseCard extends StatelessWidget {
   final String sets;
   final String startAndEnd;
   final Color bgColor;
+  final VoidCallback? onPressed;
   const ExerciseCard({
     super.key,
     required this.date,
@@ -18,6 +19,7 @@ class ExerciseCard extends StatelessWidget {
     required this.sets,
     required this.startAndEnd,
     required this.bgColor,
+    this.onPressed,
   });
 
   @override
@@ -89,7 +91,12 @@ class ExerciseCard extends StatelessWidget {
                   ],
                 ),
                 const Spacer(),
-                Image.asset(IImageStrings.arrowRight),
+                GestureDetector(
+                  onTap: onPressed,
+                  child: Image.asset(
+                    IImageStrings.arrowRight,
+                  ),
+                ),
               ],
             ),
             const Spacer(),
